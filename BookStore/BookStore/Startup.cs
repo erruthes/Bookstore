@@ -31,6 +31,11 @@ namespace BookStore
                 await context.Response.WriteAsync("Hallo from my first middleware.");
             });
 
+            app.Use(async (context, next) =>
+            {
+                await context.Response.WriteAsync("Hallo from my second middleware.");
+            });
+
             //app.UseRouting();
 
             //app.UseEndpoints(endpoints =>
