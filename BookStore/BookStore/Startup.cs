@@ -26,30 +26,6 @@ namespace BookStore
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hallo from my first middleware.");
-
-                await next();
-
-                await context.Response.WriteAsync("Hallo from my first middleware response.");
-            });
-
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hallo from my second middleware.");
-
-                await next();
-
-                await context.Response.WriteAsync("Hallo from my second middleware response.");
-            });
-
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hallo from my third middleware.");
-
-            });
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
