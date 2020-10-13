@@ -30,9 +30,17 @@ namespace BookStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
+                endpoints.Map("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
+                });
+            });
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/eruthes", async context =>
+                {
+                    await context.Response.WriteAsync("Hello eruthes!");
                 });
             });
         }
