@@ -31,6 +31,8 @@ namespace BookStore
                 await context.Response.WriteAsync("Hallo from my first middleware.");
 
                 await next();
+
+                await context.Response.WriteAsync("Hallo from my first middleware response.");
             });
 
             app.Use(async (context, next) =>
