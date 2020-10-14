@@ -32,23 +32,7 @@ namespace BookStore
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    if (env.IsDevelopment())
-                    {
-                        await context.Response.WriteAsync("Hello from dev");
-                    }
-                    else if (env.IsProduction())
-                    {
-                        await context.Response.WriteAsync("Hello from Prod");
-                    }
-                    else if (env.IsStaging())
-                    {
-                        await context.Response.WriteAsync("Hello from stag");
-                    }
-                    else
-                    {
-                        await context.Response.WriteAsync(env.EnvironmentName);
-                    }
-
+                    await context.Response.WriteAsync("Hello World!");
                 });
             });
         }
