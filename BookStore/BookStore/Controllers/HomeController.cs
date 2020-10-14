@@ -11,9 +11,21 @@ namespace BookStore.Controllers
         public ViewResult Index()
         {
             return View();
+
+            //var obj = new { id = 1, Name = "Nitish" };
+            //return View("AboutUs", obj);
+
+            //return View("TempView/Nitish.cshtml");
+            //return View("../../TempView/Nitish");
+
         }
 
         public ViewResult AboutUs()
+        {
+            return View();
+        }
+
+        public ViewResult ContactUs()
         {
             return View();
         }
