@@ -30,17 +30,25 @@ namespace BookStore
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.Map("/", async context =>
+                endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+                    if (env.IsDevelopment())
+                    {
+                        await context.Response.WriteAsync("Hello from dev");
+                    }
+                    else if (env.IsProduction())
+                    {
+                        await context.Response.WriteAsync("Hello from Prod");
+                    }
+                    else if (env.IsStaging())
+                    {
+                        await context.Response.WriteAsync("Hello from stag");
+                    }
+                    else
+                    {
+                        await context.Response.WriteAsync(env.EnvironmentName);
+                    }
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/eruthes", async context =>
-                {
-                    await context.Response.WriteAsync("Hello eruthes!");
                 });
             });
         }
